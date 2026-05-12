@@ -17,7 +17,18 @@ const PORT = process.env.PORT || 3000;
 initSocket(httpServer);
 
 // Middleware
-app.use(cors({ origin: true, credentials: true }));
+const allowedOrigins = (process.env.CORS_ORIGINS || 'https://myrs.vercel.app,http://localhost:5173')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean);
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    return callback(null, allowedOrigins.includes(origin));
+  },
+  credentials: true,
+}));
 app.use(express.json({ limit: '10mb' }));
 app.use((req, res, next) => { console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`); next(); });
 
