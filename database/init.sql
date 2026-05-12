@@ -189,8 +189,8 @@ CREATE INDEX idx_audit_logs_created ON audit_logs(created_at);
 -- Admin user default (password: admin123)
 -- Password hash generated with bcrypt
 INSERT INTO admin_users (username, password_hash, name, role) VALUES
-    ('superadmin', '$2b$10$8K1p/a0dL1LXMIgoEDFrwOfMQkfAjkMBcGmFfPwkYmPz8fFk2qKGi', 'Super Admin', 'admin'),
-    ('admincs', '$2b$10$8K1p/a0dL1LXMIgoEDFrwOfMQkfAjkMBcGmFfPwkYmPz8fFk2qKGi', 'Admin CS', 'cs');
+    ('superadmin', '$2b$10$qre.lNdbiDycMqI93SU9i.8lk5lqZqyoQLfnRhLNMfnk9uwU6lbHq', 'Super Admin', 'admin'),
+    ('admincs', '$2b$10$qre.lNdbiDycMqI93SU9i.8lk5lqZqyoQLfnRhLNMfnk9uwU6lbHq', 'Admin CS', 'cs');
 
 -- Sample doctors
 INSERT INTO doctors (name, specialty, room_number) VALUES
